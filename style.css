@@ -17,3 +17,8 @@ img {
   width: 100px;
   border-radius: 10px;
 }
+
+alt {
+  color: #a200b4;
+  font-family: sans-serif;
+}
