@@ -32,3 +32,20 @@ alt {
   color: #990EF1;
   font-family: sans-serif;
 }
+
+<style>
+  table {
+    border-collapse: collapse;
+    width: 400px;
+  }
+  th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+  }
+  th {
+    background-color: #F10ED8;
+  }
+</style>
+
+
