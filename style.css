@@ -34,10 +34,8 @@ alt {
 }
 
 table {
-  color: #990EF1;
-  font-family: sans-serif;
   border-collapse: collapse;
-  width: 400px;
+  width: 450px;
   }
 th, td {
   border: 1px solid black;
