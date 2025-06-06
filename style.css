@@ -51,5 +51,11 @@ a:visited { color: pink; }
 a:hover   { color: red; }
 a:active  { color: orange; }
 
+nav a.active {
+  border-bottom: 3px solid #007BFF;
+  padding-bottom: 5px;
+}
+
+
 
 
