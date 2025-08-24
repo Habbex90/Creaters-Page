@@ -19,10 +19,22 @@ header {
     color: black;
     padding: 20px 0;
     text-align: center;
+}
+
+h1 {    
     font-size:36px;
     font-weight: bold;
     font-family: Arial, sans-serif;
 }
+
+h2 {
+
+    font-size:20px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+
+}
+
 
 h3 {
     background-color: #004CFA;
