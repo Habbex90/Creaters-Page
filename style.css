@@ -117,30 +117,33 @@ p {
 
 /* Spel-lådor (16:9) */
 .game-box {
-  position: relative;
-  width: 100%;
-  max-width: 800px;
+  position: relative;       /* för att game-content ska kunna positioneras absolut */
+  width: 100%;              /* tar full bredd på container */
+  max-width: 800px;         /* maxbredd, kan justeras */
   margin: 10px 0 20px 0;
-  background-color: #333; /* mörk låda */
-  overflow: hidden;
+  background-color: #333;   /* mörk bakgrund */
   border-radius: 6px;
+  overflow: hidden;
   box-shadow: 0 4px 10px rgba(0,0,0,0.5);
 }
 
+/* Skapa 16:9 proportioner */
 .game-box::before {
   content: "";
   display: block;
-  padding-top: 56.25%; /* 16:9 */
+  padding-top: 56.25%;      /* 16:9 = 9/16 = 0.5625 = 56.25% */
 }
 
 .game-content {
-  position: absolute;
+  position: absolute;       /* fyller hela game-box */
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background-color: #333333; /* grå spelruta */
+  border: none;             /* tar bort iframe kant */
 }
+
 
 
 
