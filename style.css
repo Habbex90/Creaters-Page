@@ -21,6 +21,32 @@ header {
     text-align: center;
 }
 
+h1 {
+    background-color: #004CFA;
+    color: black;
+    padding: 20px 0;
+    text-align: center;
+    
+}
+
+h2 {
+
+    background-color: #0EAB0C;
+    color: black;
+    padding: 20px 0;
+    text-align: center;
+    
+}
+
+h3 {
+
+    background-color: #C40202;
+    color: black;
+    padding: 20px 0;
+    text-align: center;
+    
+}
+
 /* Navigation */
 nav ul {
     list-style: none;
