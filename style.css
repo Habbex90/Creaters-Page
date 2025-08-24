@@ -120,24 +120,21 @@ p {
   width: 100%;
   max-width: 800px;
   margin: 10px 0 20px 0;
-  background-color: #333;    /* mörk bakgrund */
   border-radius: 6px;
   overflow: hidden;
   box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-  aspect-ratio: 16 / 9;      /* Håller alltid 16:9 */
-  position: relative;         /* för iframe inuti */
+  background-color: #333;   /* mörk låda */
 }
 
-/* iframe fyller hela boxen */
-.game-content {
-  position: absolute;
-  top: 0;
-  left: 0;
+/* iframe fyller hela boxen med 16:9 */
+.game-box iframe {
   width: 100%;
-  height: 100%;
-  background-color: #333333; /* grå spelruta */
+  aspect-ratio: 16 / 9;
+  display: block;           /* tar bort inline spacing */
   border: none;
+  background-color: #333333;
 }
+
 
 
 
