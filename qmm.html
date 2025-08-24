@@ -1,25 +1,151 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-  <meta charset="UTF-8">
-  <title>Quadball Mania Manager</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quadball Mania Manager</title>
+<style>
+  body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 100%;
+    font-family: Arial, sans-serif;
+  }
+
+  /* Bakgrund: gräs med vägg */
+  .stadium {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, 
+                #28a745 0%,    /* grässtart */
+                #28a745 55%,   /* gräs slut */
+                #444 55%,      /* vägg start */
+                #444 100%);    /* vägg slut */
+  }
+
+  /* Rubrik på väggen - börjar gömd */
+  .title {
+    position: absolute;
+    top: 10%; /* placerad på väggen */
+    width: 100%;
+    text-align: center;
+    font-size: 50px;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 2px 2px 5px #000;
+    display: none;
+  }
+
+  /* Röd cirkel */
+  .ball {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: red;
+    border-radius: 50%;
+    top: 60%;  /* ligger på gräset */
+    transform: translateY(-50%);
+    animation: moveBall 3s linear forwards;
+  }
+
+  @keyframes moveBall {
+    0% { left: -60px; }
+    100% { left: 100%; }
+  }
+
+  /* Goal-text */
+  .goal {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 80px;
+    font-weight: bold;
+    display: none;
+  }
+
+  /* Game-meny */
+  .menu {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    text-align: center;
+  }
+
+  .menu button {
+    padding: 15px 30px;
+    margin: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    background-color: #007bff;
+    color: white;
+    transition: background 0.3s;
+  }
+
+  .menu button:hover {
+    background-color: #0056b3;
+  }
+</style>
 </head>
 <body>
-  <h1>Quadball Mania Manager</h1>
-  <style> 
-div {
-  width: 100px;
-  height: 100px;
-  background: red;
-  position: relative;
-  animation: myfirst 5s 2;
-  animation-direction: alternate;
-}
+  <div class="stadium">
+    <div class="title" id="title">Quadball Mania Manager</div>
+    <div class="ball" id="ball"></div>
+    <div class="goal" id="goal">Goal</div>
 
-@keyframes myfirst {
-  0%   {background: red; left: 0px; top: 0px;}
-  25%  {background: yellow; left: 900px; 
-}
-</style>
+    <!-- Game-meny -->
+    <div class="menu" id="menu">
+      <button onclick="playGame()">Play Game</button>
+      <button onclick="openSettings()">Settings</button>
+      <button onclick="quitGame()">Quit Game</button>
+    </div>
+  </div>
+
+<script>
+  const ball = document.getElementById('ball');
+  const goalText = document.getElementById('goal');
+  const menu = document.getElementById('menu');
+  const title = document.getElementById('title');
+
+  ball.addEventListener('animationend', () => {
+    goalText.style.display = 'block';
+    let count = 0;
+    const colors = ['red', 'blue', 'green', 'yellow', 'purple', 'orange', 'cyan', 'magenta', 'lime', 'pink'];
+    
+    const interval = setInterval(() => {
+      goalText.style.color = colors[count % colors.length];
+      count++;
+      if(count >= 10) {
+        clearInterval(interval);
+        goalText.style.display = 'none'; // göm Goal-text
+        title.style.display = 'block';    // visa rubrik
+        menu.style.display = 'block';     // visa game-meny
+      }
+    }, 200);
+  });
+
+  function playGame() {
+    menu.style.display = 'none';
+    title.style.display = 'none';
+    ball.style.left = '-60px';
+    ball.style.animation = 'none';
+    void ball.offsetWidth; // reset animation
+    ball.style.animation = 'moveBall 3s linear forwards';
+  }
+
+  function openSettings() {
+    alert('Settings öppnas här!');
+  }
+
+  function quitGame() {
+    alert('Spelet avslutas!');
+  }
+</script>
 </body>
 </html>
