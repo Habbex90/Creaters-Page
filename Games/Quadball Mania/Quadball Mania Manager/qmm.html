@@ -101,58 +101,71 @@
   </div>
 
 <script>
-  const ball = document.getElementById('ball');
-  const goalText = document.getElementById('goal');
-  const menu = document.getElementById('menu');
-  const title = document.getElementById('title');
+const ball = document.getElementById('ball');
+const goalText = document.getElementById('goal');
+const menu = document.getElementById('menu');
+const title = document.getElementById('title');
 
-  ball.addEventListener('animationend', () => {
-    goalText.style.display = 'block';
-    let count = 0;
-    const colors = ['red', 'blue', 'green', 'yellow', 'purple', 'orange', 'cyan', 'magenta', 'lime', 'pink'];
-    
-    const interval = setInterval(() => {
-      goalText.style.color = colors[count % colors.length];
-      count++;
-      if(count >= 10) {
-        clearInterval(interval);
-        goalText.style.display = 'none'; 
-        title.style.display = 'block';   
-        menu.style.display = 'block';    
-      }
-    }, 200);
-  });
+// Funktion för att starta animationen
+function startAnimation() {
+  goalText.style.display = 'none';
+  title.style.display = 'none';
+  menu.style.display = 'none';
 
-  // Funktioner för knapparna
-  document.getElementById('playBtn').addEventListener('click', () => {
-    menu.style.display = 'none';
-    title.style.display = 'none';
-    startGame(); // Startar ditt spel
-  });
+  // Återställ bollens animation
+  ball.style.animation = 'none';
+  ball.offsetHeight; // trigger reflow
+  ball.style.animation = 'moveBall 3s linear forwards';
+}
 
-  document.getElementById('settingsBtn').addEventListener('click', () => {
-    openSettings(); // Öppnar inställningar för ditt spel
-  });
+// När bollens animation är klar
+ball.addEventListener('animationend', () => {
+  goalText.style.display = 'block';
+  let count = 0;
+  const colors = ['red', 'blue', 'green', 'yellow', 'purple', 'orange', 'cyan', 'magenta', 'lime', 'pink'];
 
-  document.getElementById('quitBtn').addEventListener('click', () => {
-    window.location.href = 'game.html'; // Går tillbaka till game.html
-  });
+  const interval = setInterval(() => {
+    goalText.style.color = colors[count % colors.length];
+    count++;
+    if (count >= 10) {
+      clearInterval(interval);
+      goalText.style.display = 'none';
+      title.style.display = 'block';
+      menu.style.display = 'block';
 
-  // Här kopplar du till ditt spel
-  function startGame() {
-    // Exempel: ditt spel initieras här
-    console.log("Spelet startar...");
-    // Om du redan har ett JavaScript-spel, anropa funktionen här
-    // t.ex. MyGame.start();
-  }
+      // Visa knapparna i ca 20 sekunder innan animationen startar om
+      setTimeout(() => {
+        startAnimation();
+      }, 20000);
+    }
+  }, 200);
+});
 
-  // Här kopplar du till dina inställningar
-  function openSettings() {
-    // Exempel: öppna inställningar
-    console.log("Inställningar öppnas...");
-    // Om du har en inställningsfunktion, anropa den här
-    // t.ex. MyGame.openSettings();
-  }
+// Funktioner för knapparna
+document.getElementById('playBtn').addEventListener('click', () => {
+  menu.style.display = 'none';
+  title.style.display = 'none';
+  startGame(); 
+});
+
+document.getElementById('settingsBtn').addEventListener('click', () => {
+  openSettings(); 
+});
+
+document.getElementById('quitBtn').addEventListener('click', () => {
+  window.location.href = 'game.html';
+});
+
+function startGame() {
+  console.log("Spelet startar...");
+}
+
+function openSettings() {
+  console.log("Inställningar öppnas...");
+}
+
+// Starta animationen första gången
+startAnimation();
 </script>
 </body>
 </html>
