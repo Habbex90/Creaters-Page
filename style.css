@@ -1,3 +1,59 @@
+/* Reset för marginaler och padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Grundläggande body-stilar */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #000000;
+    color: white;
+}
+
+/* Header */
+header {
+    background-color: #962AC7;
+    color: black;
+    padding: 20px 0;
+    text-align: center;
+}
+
+/* Navigation */
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav a {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+{
+  
+  nav a:active {
+    color: white;
+    text-decoration: underline;
+  }
+  
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+
+
+/* Main content */
+main {
+    padding: 20px;
+}
 
 
 
