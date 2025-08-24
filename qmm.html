@@ -7,17 +7,20 @@
 </head>
 <body>
   <h1>Quadball Mania Manager</h1>
-  <div id="game">
-    <div id="team">
-      <h2>Ditt Lag</h2>
-      <ul id="players"></ul>
-    </div>
-    <div id="actions">
-      <button id="playMatch">Spela Match</button>
-      <button id="buyPlayer">Köp Spelare</button>
-    </div>
-    <div id="log"></div>
-  </div>
-  <script src="script.js"></script>
+  <style> 
+div {
+  width: 100px;
+  height: 100px;
+  background: red;
+  position: relative;
+  animation: myfirst 5s 2;
+  animation-direction: alternate;
+}
+
+@keyframes myfirst {
+  0%   {background: red; left: 0px; top: 0px;}
+  25%  {background: yellow; left: 900px; 
+}
+</style>
 </body>
 </html>
