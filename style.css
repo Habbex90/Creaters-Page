@@ -118,9 +118,12 @@ h1 {
 }
 
 section {
-  width: 90%;
-  max-width: 1000px;
-  margin-bottom: 60px;
+    width: 90%;
+    max-width: 1000px;
+    height: 60%;
+    max-height: 600px;
+    margin-bottom: 60px;
+
 }
 
 .game {
