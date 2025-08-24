@@ -1,93 +1,12 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Quadball Mania Player Manager</title>
-<style>
-  body, html {
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    height: 100%;
-    font-family: Arial, sans-serif;
-  }
-
-  .stadium {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to top, #28a745 0%, #28a745 55%, #444 55%, #444 100%);
-  }
-
-  .title {
-    position: absolute;
-    top: 10%;
-    width: 100%;
-    text-align: center;
-    font-size: 50px;
-    font-weight: bold;
-    color: #fff;
-    text-shadow: 2px 2px 5px #000;
-    display: none;
-  }
-
-  .ball {
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    background-color: red;
-    border-radius: 50%;
-    top: 60%;
-    transform: translateY(-50%);
-    animation: moveBall 3s linear forwards;
-  }
-
-  @keyframes moveBall {
-    0% { left: -60px; }
-    100% { left: 100%; }
-  }
-
-  .goal {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 80px;
-    font-weight: bold;
-    display: none;
-  }
-
-  .menu {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: none;
-    text-align: center;
-  }
-
-  .menu button {
-    padding: 15px 30px;
-    margin: 10px;
-    font-size: 24px;
-    cursor: pointer;
-    border: none;
-    border-radius: 10px;
-    background-color: #007bff;
-    color: white;
-    transition: background 0.3s;
-  }
-
-  .menu button:hover {
-    background-color: #0056b3;
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quadball Mania Player Manager</title>
+  <link rel="stylesheet" href="qmpm.css"> <!-- Koppling till CSS -->
 </head>
 <body>
- 
-  <script src="qmpm.js"></script>
-
   <div class="stadium">
     <div class="title" id="title">Quadball Mania Player Manager</div>
     <div class="ball" id="ball"></div>
@@ -100,72 +19,6 @@
     </div>
   </div>
 
-<script>
-const ball = document.getElementById('ball');
-const goalText = document.getElementById('goal');
-const menu = document.getElementById('menu');
-const title = document.getElementById('title');
-
-// Funktion för att starta animationen
-function startAnimation() {
-  goalText.style.display = 'none';
-  title.style.display = 'none';
-  menu.style.display = 'none';
-
-  // Återställ bollens animation
-  ball.style.animation = 'none';
-  ball.offsetHeight; // trigger reflow
-  ball.style.animation = 'moveBall 3s linear forwards';
-}
-
-// När bollens animation är klar
-ball.addEventListener('animationend', () => {
-  goalText.style.display = 'block';
-  let count = 0;
-  const colors = ['red', 'blue', 'green', 'yellow', 'purple', 'orange', 'cyan', 'magenta', 'lime', 'pink'];
-
-  const interval = setInterval(() => {
-    goalText.style.color = colors[count % colors.length];
-    count++;
-    if (count >= 10) {
-      clearInterval(interval);
-      goalText.style.display = 'none';
-      title.style.display = 'block';
-      menu.style.display = 'block';
-
-      // Visa knapparna i ca 20 sekunder innan animationen startar om
-      setTimeout(() => {
-        startAnimation();
-      }, 20000);
-    }
-  }, 200);
-});
-
-// Funktioner för knapparna
-document.getElementById('playBtn').addEventListener('click', () => {
-  menu.style.display = 'none';
-  title.style.display = 'none';
-  startGame(); 
-});
-
-document.getElementById('settingsBtn').addEventListener('click', () => {
-  openSettings(); 
-});
-
-document.getElementById('quitBtn').addEventListener('click', () => {
-  window.location.href = 'game.html';
-});
-
-function startGame() {
-  console.log("Spelet startar...");
-}
-
-function openSettings() {
-  console.log("Inställningar öppnas...");
-}
-
-// Starta animationen första gången
-startAnimation();
-</script>
+  <script src="qmpm.js"></script> <!-- Koppling till JS -->
 </body>
 </html>
