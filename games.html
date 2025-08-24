@@ -4,30 +4,41 @@
   <link rel="stylesheet" href="style.css">
   <script src="script.js"></script>
   <header> 
-    
-    <style>
+     <style>
     body {
       display: flex;
-      justify-content: center;
+      flex-direction: column; /* lodrätt */
       align-items: center;
-      height: 100vh;
       margin: 0;
+      font-family: sans-serif;
       background: #111;
+      color: white;
+      padding: 20px;
     }
 
-    /* Själva ramen */
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    .frames-container {
+      display: flex;
+      flex-direction: column; /* lodrätt staplade ramar */
+      gap: 20px; /* avstånd mellan ramarna */
+      align-items: center;
+    }
+
     .game-frame {
-      border: 15px solid red; /* startfärg, lagom tjock */
-      padding: 20px;          /* utrymme mellan ram och spelet */
-      border-radius: 15px;    /* lite rundade hörn */
-      transition: border-color 0.5s ease; /* mjuk övergång */
+      border: 10px solid red; /* startfärg */
+      padding: 20px;
+      border-radius: 15px;
+      transition: border-color 0.5s ease;
     }
 
-    /* Spelytan (exempel) */
     .game-area {
-      width: 600px;
-      height: 400px;
+      width: 400px;
+      height: 200px;
       background: #222;
+      border: none;
     }
   </style>
   </header>
