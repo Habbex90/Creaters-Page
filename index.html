@@ -4,6 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Habbex Creates</title>
+     <style>
+    /* Container som lägger bild och text bredvid varandra */
+    .container {
+      display: flex;
+      align-items: center; /* vertikal centrering */
+      gap: 20px; /* avstånd mellan bild och text */
+    }
+
+    .container img {
+      max-width: 200px; /* anpassa bildstorlek */
+      height: auto;
+      border-radius: 10px;
+    }
+
+    .text {
+      font-size: 24px;
+      font-weight: bold;
+      animation: colorchange 6s infinite;
+    }
+
+    /* Animation för att byta färg */
+    @keyframes colorchange {
+      0%   { color: red; }
+      25%  { color: blue; }
+      50%  { color: green; }
+      75%  { color: orange; }
+      100% { color: red; }
+    }
+  </style>
     <!-- Länk till CSS-filen -->
     <link rel="stylesheet" href="style.css">
 </head>
@@ -32,7 +61,11 @@
   }
 </style>
 
-<img src="Bilder/CartoonMe.png" class="min-bild">
+    <div class="container">
+    <img src="Bilder/CartoonMe.png" class="min-bild">
+    <div class="text">Habbex Creater Blogg!</div>
+      </div>
+
 
 
 <h4>About Me</h4>
