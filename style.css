@@ -99,28 +99,34 @@ main {
 /* Container som lägger bild och text bredvid varandra */
 .container {
   display: flex;
-  align-items: center; /* vertikal centrering */
-  gap: clamp(20px, 10vw, 100px); /* responsivt mellanrum */
-  flex-wrap: wrap; /* bryter layouten på små skärmar */
+  align-items: center;        /* vertikal centrering */
+  justify-content: space-between; /* text till vänster, bild till höger */
+  gap: clamp(20px, 5vw, 50px);   /* responsivt mellanrum */
+  flex-wrap: nowrap;          /* hindrar texten från att hoppa under bilden */
+  width: 100%;
+  overflow-x: auto;           /* horisontell scroll på extremt smal skärm */
 }
 
-/* Bilden i containern */
-.container img,
-.min-bild {
-  max-width: 40%;      /* bilden tar max 40% av container */
-  width: 100%;         /* skalar med container */
-  height: auto;        /* behåller proportioner */
-  border-radius: 10px;
-}
-
-/* Text-styling med animation */
-.text {
+/* Texten på vänster sida */
+.container .text {
+  flex: 1;                     /* tar upp kvarvarande utrymme */
   font-size: clamp(18px, 4vw, 36px); /* responsiv textstorlek */
   font-weight: bold;
+  white-space: nowrap;         /* hindrar radbrytning */
   animation: colorchange 6s infinite;
 }
 
-/* Animation för att byta färg */
+/* Bilden på höger sida */
+.container img,
+.min-bild {
+  flex-shrink: 0;              /* hindrar bilden från att krympa för mycket */
+  max-width: 40%;              /* maxstorlek för bilden */
+  width: 100%;                 /* skalar med container */
+  height: auto;                /* behåller proportion */
+  border-radius: 10px;
+}
+
+/* Animation för färgändring */
 @keyframes colorchange {
   0%   { color: #FFFFFF; }
   25%  { color: #962AC7; }
