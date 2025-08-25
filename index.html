@@ -4,77 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Habbex Creates</title>
-     <style>
-    /* Container som lägger bild och text bredvid varandra */
-    .container {
-      display: flex;
-      align-items: center; /* vertikal centrering */
-      gap: 400px; /* avstånd mellan bild och text */
-    }
-
-    .container img {
-      max-width: 200px; /* anpassa bildstorlek */
-      height: auto;
-      border-radius: 10px;
-    }
-
-    .text {
-      font-size: 36px;
-      font-weight: bold;
-      animation: colorchange 6s infinite;
-    }
-
-    /* Animation för att byta färg */
-    @keyframes colorchange {
-      0%   { color: #FFFFFF; }
-      25%  { color: #962AC7; }
-      50%  { color: #004CFA; }
-      75%  { color: #0EAB0C; }
-      100% { color: #C40202; }
-    }
-  </style>
     <!-- Länk till CSS-filen -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
         <h1>Welcome to the Habbex Creator website!</h1>
-        
-        <h2><nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="games.html">Games</a></li>
-                <li><a href="musik.html">Music</a></li>
-                 <li><a href="tavlor.html">Paintings</a></li>
-                <li><a href="kontakt.html">Contact Me</a></li>
-            </ul>
-        </nav></h2>
+        <h2>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="games.html">Games</a></li>
+                    <li><a href="musik.html">Music</a></li>
+                    <li><a href="tavlor.html">Paintings</a></li>
+                    <li><a href="kreationer.html">Other creations</a></li>
+                    <li><a href="kontakt.html">Contact Me</a></li>
+                </ul>
+            </nav>
+        </h2>
     </header>
 
     <main>
         <section>
-          
-          <style>
-  .min-bild {
-    width: 200px;
-    height: auto; /* behåller proportionerna */
-  }
-</style>
+            <div class="container">
+                <img src="Bilder/CartoonMe.png" class="min-bild">
+                <div class="text">Habbex Creater Blogg!</div>
+            </div>
 
-    <div class="container">
-    <img src="Bilder/CartoonMe.png" class="min-bild">
-    <div class="text">Habbex Creater Blogg!</div>
-      </div>
-
-
-
-<h4>About Me</h4>
-<p>I am a man who likes to create things. It can be physical or digital. It doesn't matter what it is. 
-              It can be paintings, music, games and so on. This is just a place for me to collect my creations but also to showcase them. 
-              So others can play, watch or listen to what I have created if they want.</p>
+            <h4>About Me</h4>
+            <p>
+                I am a man who likes to create things. It can be physical or digital. It doesn't matter what it is. 
+                It can be paintings, music, games and so on. This is just a place for me to collect my creations but also to showcase them. 
+                So others can play, watch or listen to what I have created if they want.
+            </p>
         </section>
     </main>
-  
 </body>
 </html>
-
