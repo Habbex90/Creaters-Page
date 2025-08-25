@@ -32,6 +32,41 @@ h2 {
     font-weight: bold;
 }
 
+/* Huvudrubrik */
+h3 {
+  background-color: #1E88E5; /* blå ton */
+  color: #fff;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+/* Underrubrik */
+h4 {
+  background-color: #43A047; /* grön ton */
+  color: #fff;
+  padding: 12px;
+  margin: 8px 0;
+  border-radius: 6px;
+}
+
+/* Mindre underrubrik */
+h5 {
+  background-color: #F4511E; /* orange-röd ton */
+  color: #fff;
+  padding: 10px;
+  margin: 6px 0;
+  border-radius: 6px;
+}
+
+p {
+  background-color: #212121; /* mörkgrå */
+  padding: 8px;
+  margin: 4px 0 12px 0;
+  border-radius: 4px;
+  color: #fff;
+}
+
 /* Navigation */
 nav ul {
     list-style: none;
