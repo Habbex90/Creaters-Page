@@ -1,5 +1,3 @@
-
-/* index.html */
 /* Reset för marginaler och padding */
 * {
     margin: 0;
@@ -13,6 +11,7 @@ body {
     line-height: 1.6;
     background-color: #000000;
     color: white;
+    font-size: clamp(14px, 2vw, 18px); /* Skalar text mellan 14–18px beroende på skärm */
 }
 
 /* Header */
@@ -24,25 +23,23 @@ header {
 }
 
 h1 {    
-    font-size:36px;
+    font-size: clamp(24px, 5vw, 36px); /* Gör rubriker responsiva */
     font-weight: bold;
-    font-family: Arial, sans-serif;
 }
 
 h2 {
-
-    font-size:20px;
+    font-size: clamp(16px, 3vw, 20px);
     font-weight: bold;
-    font-family: Arial, sans-serif;
-
 }
 
 /* Navigation */
 nav ul {
     list-style: none;
     display: flex;
+    flex-wrap: wrap; /* Gör så att menyn bryts på små skärmar */
     justify-content: center;
     gap: 20px;
+    padding: 10px;
 }
 
 nav a {
@@ -51,22 +48,44 @@ nav a {
     font-weight: bold;
 }
 
-{
-  
-  nav a:active {
+nav a:hover,
+nav a:active {
     color: white;
     text-decoration: underline;
-  }
-  
 }
-
-nav a:hover {
-    text-decoration: underline;
-}
-
-
 
 /* Main content */
 main {
     padding: 20px;
+    max-width: 1200px; /* Gör så att texten inte blir för bred */
+    margin: auto;
+}
+
+/* Gör bilder och video proportionella */
+img, video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Gör iframes (t.ex. YouTube) proportionella */
+iframe {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: 0;
+}
+
+/* Skapa flexibla boxar som behåller proportioner */
+.responsive-box {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #333;
+}
+
+/* Media query för extra små skärmar */
+@media (max-width: 600px) {
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
 }
