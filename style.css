@@ -96,11 +96,37 @@ main {
     margin: auto;
 }
 
-/* Gör bilder och video proportionella */
-img, video {
-    max-width: 100%;
-    height: auto;
-    display: block;
+/* Container som lägger bild och text bredvid varandra */
+.container {
+  display: flex;
+  align-items: center; /* vertikal centrering */
+  gap: clamp(20px, 10vw, 100px); /* responsivt mellanrum */
+  flex-wrap: wrap; /* bryter layouten på små skärmar */
+}
+
+/* Bilden i containern */
+.container img,
+.min-bild {
+  max-width: 40%;      /* bilden tar max 40% av container */
+  width: 100%;         /* skalar med container */
+  height: auto;        /* behåller proportioner */
+  border-radius: 10px;
+}
+
+/* Text-styling med animation */
+.text {
+  font-size: clamp(18px, 4vw, 36px); /* responsiv textstorlek */
+  font-weight: bold;
+  animation: colorchange 6s infinite;
+}
+
+/* Animation för att byta färg */
+@keyframes colorchange {
+  0%   { color: #FFFFFF; }
+  25%  { color: #962AC7; }
+  50%  { color: #004CFA; }
+  75%  { color: #0EAB0C; }
+  100% { color: #C40202; }
 }
 
 /* Gör iframes (t.ex. YouTube) proportionella */
