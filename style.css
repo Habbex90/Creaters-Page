@@ -17,6 +17,7 @@ body {
 /* Header */
 header {
     background-color: #962AC7;
+    font-size: clamp(24px, 5vw, 36px); /* Gör rubriker responsiva */
     color: black;
     padding: 20px 0;
     text-align: center;
