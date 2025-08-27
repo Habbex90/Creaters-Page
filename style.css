@@ -23,7 +23,7 @@ header {
 }
 
 h1 {    
-    font-size: clamp(24px, 5vw, 36px); /* Gör rubriker responsiva */
+    font-size: clamp(18px, 5vw, 24px); /* Gör rubriker responsiva */
     font-weight: bold;
 }
 
