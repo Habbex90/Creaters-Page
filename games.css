@@ -37,11 +37,12 @@ h4 {
 
 /* Mindre underrubrik */
 h5 {
-  background-color: #e91e63; }  /* hallonrosa */
+  background-color:#e91e63; }  /* hallonrosa */
   color: #fff;
-  padding: 10px;
-  margin: 6px 0;
+  padding: 12px;
+  margin: 8px 0;
   border-radius: 6px;
+}
 }
 
 p {
