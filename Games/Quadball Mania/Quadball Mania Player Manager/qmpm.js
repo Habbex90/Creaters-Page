@@ -36,8 +36,8 @@ ball.addEventListener('animationend', () => {
 
   // Skapa en funktion som skickar till sidan
   function goToUnderConstruction() {
-    window.location.href = 'Under Construction/under-construction.html';
-  }
+  window.location.href = 'https://habbex90.github.io/Creaters-Page/Under%20Construction/under-construction.html';
+}
 
   // Hämta knapparna och koppla onclick
   document.getElementById('playBtn').onclick = goToUnderConstruction;
