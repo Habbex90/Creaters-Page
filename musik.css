@@ -1,6 +1,6 @@
 .my-button {
-  background-color: #4CAF50;   /* grön bakgrund */
-  color: white;                /* vit text */
+  background-color: #C90000;   /* blodröd bakgrund */
+  color: black;                /* svart text */
   padding: 12px 24px;          /* inre avstånd */
   font-size: 16px;             /* textstorlek */
   border: none;                /* ingen kantlinje */
@@ -10,5 +10,5 @@
 }
 
 .my-button:hover {
-  background-color: #45a049;   /* mörkare grön vid hover */
+  background-color: #800505;   /* vinröd vid hover */
 }
