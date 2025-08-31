@@ -9,7 +9,7 @@ function startAnimation() {
   menu.style.display = 'none';
 
   ball.style.animation = 'none';
-  ball.offsetHeight; 
+  ball.offsetHeight; // trigger reflow
   ball.style.animation = 'moveBall 3s linear forwards';
 }
 
@@ -25,7 +25,7 @@ ball.addEventListener('animationend', () => {
       clearInterval(interval);
       goalText.style.display = 'none';
       title.style.display = 'block';
-      menu.style.display = 'block';
+      menu.style.display = 'flex'; // visa menyn
 
       setTimeout(() => {
         startAnimation();
@@ -37,11 +37,11 @@ ball.addEventListener('animationend', () => {
 document.getElementById('playBtn').addEventListener('click', () => {
   menu.style.display = 'none';
   title.style.display = 'none';
-  startGame(); 
+  startGame();
 });
 
 document.getElementById('settingsBtn').addEventListener('click', () => {
-  openSettings(); 
+  openSettings();
 });
 
 document.getElementById('quitBtn').addEventListener('click', () => {
@@ -56,4 +56,5 @@ function openSettings() {
   console.log("Inställningar öppnas...");
 }
 
+// starta animationen direkt
 startAnimation();
