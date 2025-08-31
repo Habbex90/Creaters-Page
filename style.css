@@ -96,44 +96,75 @@ main {
     margin: auto;
 }
 
-/* Container som lägger bild och text bredvid varandra */
+/* --- ANIMERAD RAM --- */
+@keyframes frameColors {
+  0%   { border-color: #e91e63; }
+  20%  { border-color: #ff9800; }
+  40%  { border-color: #ffeb3b; }
+  60%  { border-color: #4caf50; }
+  80%  { border-color: #2196f3; }
+  100% { border-color: #e91e63; }
+}
+
+.ram {
+  flex: 1;                           
+  margin: 10px;
+  border: 6px solid;
+  border-radius: 16px;
+  animation: frameColors 8s linear infinite;
+  padding: 1rem;
+  background: #111;
+  color: #eee;
+  font-family: sans-serif;
+  box-sizing: border-box;
+  display: flex;                     
+  align-items: center;
+  justify-content: center;
+}
+
+/* --- CONTAINER FÖR TVÅ RAMAR BREDVID VARANDRA --- */
 .container {
   display: flex;
-  align-items: center;        /* vertikal centrering */
-  justify-content: space-between; /* text till vänster, bild till höger */
-  gap: clamp(20px, 5vw, 50px);   /* responsivt mellanrum */
-  flex-wrap: nowrap;          /* hindrar texten från att hoppa under bilden */
-  width: 100%;
-  overflow-x: auto;           /* horisontell scroll på extremt smal skärm */
+  justify-content: center;
+  align-items: stretch;   /* lika höga */
+  gap: 20px;
+  max-width: 1000px;
+  margin: 40px auto;
 }
 
-/* Texten på vänster sida */
-.container .text {
-  flex: 1;                     /* tar upp kvarvarande utrymme */
-  font-size: clamp(18px, 4vw, 36px); /* responsiv textstorlek */
-  font-weight: bold;
-  white-space: nowrap;         /* hindrar radbrytning */
-  animation: colorchange 6s infinite;
-}
-
-/* Bilden på höger sida */
-.container img,
+/* --- BILD --- */
 .min-bild {
-  flex-shrink: 0;              /* hindrar bilden från att krympa för mycket */
-  max-width: 40%;              /* maxstorlek för bilden */
-  width: 100%;                 /* skalar med container */
-  height: auto;                /* behåller proportion */
+  max-width: 100%;
+  height: auto;
   border-radius: 10px;
 }
 
-/* Animation för färgändring */
-@keyframes colorchange {
-  0%   { color: #FFFFFF; }
-  25%  { color: #962AC7; }
-  50%  { color: #004CFA; }
-  75%  { color: #0EAB0C; }
-  100% { color: #C40202; }
+/* --- FORMULÄR --- */
+form {
+  width: 100%;
 }
+
+form input, form textarea, form button {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+}
+
+form button {
+  background: #444;
+  color: #fff;
+  cursor: pointer;
+}
+
+form button:hover {
+  background: #666;
+}
+
 
 /* Gör iframes (t.ex. YouTube) proportionella */
 iframe {
