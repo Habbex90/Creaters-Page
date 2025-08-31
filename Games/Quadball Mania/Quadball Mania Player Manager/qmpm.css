@@ -40,6 +40,7 @@ body, html {
   justify-content: center;
   align-items: center;
   margin-top: 20px;
+  display: none; /* döljs tills animationen är klar */
 }
 
 .menu button {
@@ -56,5 +57,19 @@ body, html {
 .menu button:hover {
   background-color: #0056b3;
 }
-  background-color: #0056b3;
+
+.ball {
+  position: absolute; /* viktigt för animationen */
+  width: 50px;
+  height: 50px;
+  background-color: red;
+  border-radius: 50%;
+  top: 60%;
+  transform: translateY(-50%);
+  animation: moveBall 3s linear forwards;
+}
+
+@keyframes moveBall {
+  0% { left: -60px; }
+  100% { left: 100%; }
 }
