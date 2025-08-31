@@ -34,27 +34,16 @@ ball.addEventListener('animationend', () => {
   }, 50);
 });
 
-document.getElementById('playBtn').addEventListener('click', () => {
-  menu.style.display = 'none';
-  title.style.display = 'none';
-  startGame();
-});
+  // Skapa en funktion som skickar till sidan
+  function goToUnderConstruction() {
+    window.location.href = 'Under Construction/under-construction.html';
+  }
 
-document.getElementById('settingsBtn').addEventListener('click', () => {
-  openSettings();
-});
+  // Hämta knapparna och koppla onclick
+  document.getElementById('playBtn').onclick = goToUnderConstruction;
+  document.getElementById('settingsBtn').onclick = goToUnderConstruction;
+  document.getElementById('quitBtn').onclick = goToUnderConstruction;
 
-document.getElementById('quitBtn').addEventListener('click', () => {
-  window.location.href = 'game.html';
-});
-
-function startGame() {
-  console.log("Spelet startar...");
-}
-
-function openSettings() {
-  console.log("Inställningar öppnas...");
-}
 
 // starta animationen direkt
 startAnimation();
