@@ -1,1 +1,14 @@
+.my-button {
+  background-color: #4CAF50;   /* grön bakgrund */
+  color: white;                /* vit text */
+  padding: 12px 24px;          /* inre avstånd */
+  font-size: 16px;             /* textstorlek */
+  border: none;                /* ingen kantlinje */
+  border-radius: 8px;          /* rundade hörn */
+  cursor: pointer;             /* pekaren blir hand när man hovrar */
+  transition: background 0.3s; /* mjuk övergång för hover */
+}
 
+.my-button:hover {
+  background-color: #45a049;   /* mörkare grön vid hover */
+}
