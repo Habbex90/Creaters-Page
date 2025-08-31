@@ -24,10 +24,24 @@
 
     <main>
         <section>
-            <div class="container">
-                <img src="Bilder/CartoonMe.png" class="min-bild" alt="Bild på mig">
-                <div class="text">Habbex</div>
-            </div>
+  <div class="container">
+    <!-- Vänster ram: bild -->
+    <div class="ram">
+      <!-- Här stoppar vi in bilden -->
+      <img src="Bilder/CartoonMe.png" class="min-bild" alt="Bild på mig">
+    </div>
+
+    <!-- Höger ram: kontaktformulär -->
+    <div class="ram">
+      <!-- Här stoppar vi in kontaktformuläret -->
+      <form>
+        <input type="text" placeholder="Ditt namn" required>
+        <input type="email" placeholder="Din e-post" required>
+        <textarea rows="4" placeholder="Ditt meddelande"></textarea>
+        <button type="submit">Skicka</button>
+      </form>
+    </div>
+  </div>
 
             <h4>About Me</h4>
             <p>
