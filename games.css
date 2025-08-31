@@ -44,13 +44,30 @@ p {
 
 /* Spel-lådor (16:9) */
 .game-box {
+  flex: 1;                           
   width: 100%;
   max-width: 800px;
   margin: 10px 0 20px 0;
-  border-radius: 6px;
-  overflow: hidden;
+  border: 6px solid;
+  border-radius: 16px;
+  animation: frameColors 8s linear infinite;
+  padding: 1rem;
   box-shadow: 0 4px 10px rgba(0,0,0,0.5);
   background-color: #333;   /* mörk låda */
+  color: #eee;
+  font-family: sans-serif;
+  box-sizing: border-box;
+  display: flex;                     
+  align-items: center;
+  justify-content: center;
+}
+
+/* --- ANIMERAD RAM --- */
+@keyframes frameColors {
+  0%   { border-color: #962AC7; }  /* violett */
+  25%  { border-color: #1E88E5; }  /* kungsblå */
+  50%  { border-color: #43A047; }  /* skogsgrön */
+  100% { border-color: #e91e63; }  /*hallonrosa och tillbaka till violett */
 }
 
 /* iframe fyller hela boxen med 16:9 */
