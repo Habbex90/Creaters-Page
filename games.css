@@ -1,10 +1,20 @@
 /* game.html */
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 20px;
-  background: #000; /* svart bakgrund */
-  color: #fff; /* vit text som standard */
+/* Header */
+header {
+    background-color: #962AC7;
+    color: black;
+    padding: 20px 0;
+    text-align: center;
+}
+
+h1 {    
+    font-size: clamp(24px, 5vw, 36px); /* Gör rubriker responsiva */
+    font-weight: bold;
+}
+
+h2 {
+    font-size: clamp(16px, 3vw, 20px);
+    font-weight: bold;
 }
 
 /* Huvudrubrik */
@@ -40,6 +50,14 @@ p {
   margin: 4px 0 12px 0;
   border-radius: 4px;
   color: #fff;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background: #000; /* svart bakgrund */
+  color: #fff; /* vit text som standard */
 }
 
 /* Spel-lådor (16:9) */
