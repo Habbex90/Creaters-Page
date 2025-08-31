@@ -52,7 +52,7 @@ h4 {
 
 /* Mindre underrubrik */
 h5 {
-  background-color: #F4511E; /* orange-röd ton */
+  background-color:#e91e63; }  /* hallonrosa */
   color: #fff;
   padding: 10px;
   margin: 6px 0;
@@ -101,7 +101,7 @@ main {
   0%   { border-color: #962AC7; }  /* violett */
   25%  { border-color: #1E88E5; }  /* kungsblå */
   50%  { border-color: #43A047; }  /* skogsgrön */
-  100% { border-color: #e91e63; }  /*hallonrosa och tillbaka till violett */
+  100% { border-color: #e91e63; }  /* hallonrosa och tillbaka till violett */
 }
 
 .ram {
