@@ -79,4 +79,18 @@ p {
   background-color: #333333;
 }
 
-<a href="index.html">⬅ Back</a>
+
+.my-button {
+  background-color: #C90000;   /* blodröd bakgrund */
+  color: black;                /* svart text */
+  padding: 12px 24px;          /* inre avstånd */
+  font-size: 16px;             /* textstorlek */
+  border: none;                /* ingen kantlinje */
+  border-radius: 8px;          /* rundade hörn */
+  cursor: pointer;             /* pekaren blir hand när man hovrar */
+  transition: background 0.3s; /* mjuk övergång för hover */
+}
+
+.my-button:hover {
+  background-color: #800505;   /* vinröd vid hover */
+}
