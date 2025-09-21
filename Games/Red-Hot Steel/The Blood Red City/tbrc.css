@@ -4,8 +4,6 @@ body {
   align-items: center;
   height: 100vh;
   margin: 0;
-  background: url('https://habbex90.github.io/Creaters-Page/Bilder/sword_blood.gif') no-repeat center center fixed;
-  background-size: contain; /* Fyll hela sidan, kan bytas till 'contain' om du vill se hela GIF:en */
 }
   font-family: Arial, sans-serif;
 }
