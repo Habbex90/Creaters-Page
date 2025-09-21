@@ -8,20 +8,34 @@ body {
   height: 100vh;
 }
 
-#container {
-  position: relative;
-  display: inline-block;
+.game-box {
+  flex: 1;                           
+  width: 100%;
+  max-width: 800px;
+  margin: 10px 0 20px 0;
+  border: 6px solid;
+  border-radius: 16px;
+  padding: 0; /* ingen padding för GIF */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  background-color: #333;
+  color: #eee;
+  font-family: sans-serif;
+  box-sizing: border-box;
+  display: flex;                     
+  align-items: center;
+  justify-content: center;
+  position: relative; /* overlay absolut */
+  overflow: hidden;  /* overlay stannar inom boxen */
 }
 
-#sword_blood {
-  width: 80vw;       /* GIF skalar med skärmstorlek */
-  max-width: 600px;  /* maxstorlek */
-  height: auto;
+.sword_blood {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* täcker hela boxen */
   display: block;
 }
 
-/* Overlay ovanpå GIF, alltid inom GIF:en */
-#overlay {
+.overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -29,32 +43,32 @@ body {
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;  /* vertikal centering */
-  align-items: center;      /* horisontell centering */
-  pointer-events: none;     /* klick går igenom, förutom knappar */
-  padding: 5%;              /* gör att text/knappar inte går utanför */
+  justify-content: center; /* vertikal centering */
+  align-items: center;     /* horisontell centering */
+  pointer-events: none;    /* klick går igenom */
+  padding: 2%;             /* håller text/knappar inom GIF */
   box-sizing: border-box;
 }
 
-#title {
-  font-size: 5%;             /* alltid proportionell till GIF */
-  white-space: nowrap;       /* alltid en rad */
+.title {
+  font-size: 3vw;          /* proportionell text */
+  white-space: nowrap;      /* alltid en rad */
   margin: 0;
+  text-align: center;
   color: white;
   text-shadow: 2px 2px 4px black;
-  text-align: center;
 }
 
-#buttons {
-  margin-top: 1em;
+.buttons {
+  margin-top: 0.5em;
   display: flex;
   gap: 1em;
-  pointer-events: auto;      /* knappar är klickbara */
+  pointer-events: auto;     /* knappar är klickbara */
 }
 
 button {
   padding: 0.5em 1em;
-  font-size: 2.5%;           /* proportionell till GIF */
+  font-size: 1.5vw;         /* proportionell */
   border-radius: 5px;
   border: none;
   background: #e74c3c;
@@ -65,11 +79,6 @@ button {
 button:hover {
   background: #c0392b;
 }
-
-.hidden {
-  display: none;
-}
-
 
 .hidden {
   display: none;
