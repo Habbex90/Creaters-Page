@@ -3,23 +3,23 @@ const newGameBtn = document.getElementById("newGame");
 const loadGameBtn = document.getElementById("loadGame");
 
 // GIF-tider
-const timeFrames1to19 = 3002;
-const timeFrame20 = 2000;
+const timeFrames1to19 = 3002; // tid för frame 1–19
+const timeFrame20 = 2000;      // tid för frame 20
 
 function startLoop() {
-  overlay.classList.add("hidden"); // dölj overlay först
+  overlay.classList.add("hidden"); // Dölj overlay först
 
-  // Efter frame 1–19 tid → visa overlay ovanpå GIF
+  // Efter frame 1–19 → visa overlay under frame 20
   setTimeout(() => {
-    overlay.classList.remove("hidden");
+    overlay.classList.remove("hidden"); // overlay visas under frame 20
 
-    // Efter frame 20 tid → göm overlay och loopa
+    // Efter frame 20 → göm overlay
     setTimeout(() => {
       overlay.classList.add("hidden");
-      startLoop(); // repeat
+      startLoop(); // starta om GIF-timing
     }, timeFrame20);
 
-  }, timeFrames1to19);
+  }, timeFrames1to19); // vänta tills frame 1–19 är klar
 }
 
 // Event för knappar
