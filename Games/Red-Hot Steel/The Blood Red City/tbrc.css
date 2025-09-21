@@ -36,7 +36,6 @@ body {
   height: 100%;
   max-height: 450px;
   object-fit: cover; /* täcker hela boxen */
-  display: block;
 }
 
 .overlay {
