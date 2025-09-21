@@ -19,7 +19,7 @@ body {
   border-radius: 16px;
   padding: 0; /* ingen padding för GIF */
   box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-  background-color: #333;
+  background: url('https://habbex90.github.io/Creaters-Page/Bilder/sword_blood.gif') center center / cover no-repeat;
   color: #eee;
   font-family: sans-serif;
   box-sizing: border-box;
