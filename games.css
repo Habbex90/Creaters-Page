@@ -65,6 +65,8 @@ body {
   flex: 1;                           
   width: 100%;
   max-width: 854px;
+  height: auto;
+  max-height: 480px;
   aspect-ratio: 16 / 9;
   margin: 10px 0 20px 0;
   border: 6px solid;
