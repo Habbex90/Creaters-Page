@@ -1,4 +1,4 @@
-const overlay = document.getElementById("overlay");
+const overlay = document.querySelector(".overlay");
 const newGameBtn = document.getElementById("newGame");
 const loadGameBtn = document.getElementById("loadGame");
 
@@ -9,9 +9,9 @@ const timeFrame20 = 2000;      // tid för frame 20
 function startLoop() {
   overlay.classList.add("hidden"); // Dölj overlay först
 
-  // Efter frame 1–19 → visa overlay under frame 20
+  // Vänta tills frame 1–19 är färdiga
   setTimeout(() => {
-    overlay.classList.remove("hidden"); // overlay visas under frame 20
+    overlay.classList.remove("hidden"); // Visa overlay precis när frame 20 börjar
 
     // Efter frame 20 → göm overlay
     setTimeout(() => {
