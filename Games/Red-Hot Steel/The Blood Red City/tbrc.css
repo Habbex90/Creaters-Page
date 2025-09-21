@@ -9,33 +9,27 @@ body {
 }
 
 .game-box {
-  flex: 1;                           
-  width: 100%;
+  position: relative;
+  width: 90vw;
   max-width: 800px;
-  height: 100%;
-  max-height: 450px;
-  margin: 10px 0 20px 0;
-  border: 6px solid;
+  aspect-ratio: 16 / 9; /* alltid 16:9 */
+  border: 6px solid red; /* startfärg */
   border-radius: 16px;
-  padding: 0; /* ingen padding för GIF */
-  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-  background: url('https://habbex90.github.io/Creaters-Page/Bilder/sword_blood.gif') center center / cover no-repeat;
-  color: #eee;
-  font-family: sans-serif;
-  box-sizing: border-box;
-  display: flex;                     
-  align-items: center;
+  overflow: hidden;
+  display: flex;
   justify-content: center;
-  position: relative; /* overlay absolut */
-  overflow: hidden;  /* overlay stannar inom boxen */
+  align-items: center;
+  background: url('https://habbex90.github.io/Creaters-Page/Bilder/sword_blood.gif') center center / cover no-repeat;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  animation: borderColorChange 2s linear infinite alternate;
 }
 
-.sword_blood {
-  width: 100%;
-  max-width: 800px;
-  height: 100%;
-  max-height: 450px;
-  object-fit: cover; /* täcker hela boxen */
+@keyframes borderColorChange {
+  0% { border-color: red; }
+  25% { border-color: orange; }
+  50% { border-color: yellow; }
+  75% { border-color: crimson; }
+  100% { border-color: red; }
 }
 
 .overlay {
@@ -46,16 +40,16 @@ body {
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* vertikal centering */
-  align-items: center;     /* horisontell centering */
-  pointer-events: none;    /* klick går igenom */
-  padding: 2%;             /* håller text/knappar inom GIF */
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+  padding: 2%;
   box-sizing: border-box;
 }
 
 .title {
-  font-size: 3vw;          /* proportionell text */
-  white-space: nowrap;      /* alltid en rad */
+  font-size: 3vw; /* proportionell */
+  white-space: nowrap; /* alltid en rad */
   margin: 0;
   text-align: center;
   color: white;
@@ -66,12 +60,12 @@ body {
   margin-top: 0.5em;
   display: flex;
   gap: 1em;
-  pointer-events: auto;     /* knappar är klickbara */
+  pointer-events: auto; /* knappar är klickbara */
 }
 
 button {
   padding: 0.5em 1em;
-  font-size: 1.5vw;         /* proportionell */
+  font-size: 1.5vw;
   border-radius: 5px;
   border: none;
   background: #e74c3c;
