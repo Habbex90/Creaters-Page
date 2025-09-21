@@ -67,7 +67,6 @@ body {
   height: 100%;
   max-width: 854px;
   max-height: 480px;
-  aspect-ratio: 16 / 9;
   margin: 10px 0 20px 0;
   border: 6px solid;
   border-radius: 16px;
