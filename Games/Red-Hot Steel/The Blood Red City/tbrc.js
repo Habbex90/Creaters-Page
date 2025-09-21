@@ -1,36 +1,34 @@
-const overlay = document.querySelector(".overlay");
+const overlay = document.querySelector(".overlay"); 
 const newGameBtn = document.getElementById("newGame");
 const loadGameBtn = document.getElementById("loadGame");
 
 // GIF-tider
-const timeFrames1to19 = 3002; // tid för frame 1–19
-const timeFrame20 = 2000;      // tid för frame 20
+const initialDelay = 3002; // tid innan overlay visas
+const overlayDuration = 2000; // tid overlay är synlig
 
 function startLoop() {
   overlay.classList.add("hidden"); // Dölj overlay först
 
-  // Vänta tills frame 1–19 är färdiga
+  // Vänta initialDelay innan overlay visas
   setTimeout(() => {
-    overlay.classList.remove("hidden"); // Visa overlay precis när frame 20 börjar
+    overlay.classList.remove("hidden"); // Visa overlay
 
-    // Efter frame 20 → göm overlay
+    // Efter overlayDuration → göm overlay och loopa direkt
     setTimeout(() => {
       overlay.classList.add("hidden");
       startLoop(); // starta om GIF-timing
-    }, timeFrame20);
+    }, overlayDuration);
 
-  }, timeFrames1to19); // vänta tills frame 1–19 är klar
+  }, initialDelay);
 }
 
 // Event för knappar
 newGameBtn.onclick = () => {
   console.log("New Game startar om...");
-  // Lägg till kod för att nollställa spelet
 };
 
 loadGameBtn.onclick = () => {
   console.log("Load Game startar från senaste sparningen...");
-  // Lägg till kod för att ladda sparning
 };
 
 // Start loop när sidan laddas
