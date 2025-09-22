@@ -4,6 +4,13 @@ const menu = document.getElementById('menu');
 const title = document.getElementById('title');
 
 function startAnimation() {
+  goalText.style.display = 'none';
+  title.style.display = 'none';
+  menu.style.display = 'none';
+
+  ball.style.animation = 'none';
+  ball.offsetHeight; // trigger reflow
+  ball.style.animation = 'moveBall 3s linear forwards';
 }
 
 ball.addEventListener('animationend', () => {
@@ -36,7 +43,6 @@ ball.addEventListener('animationend', () => {
   document.getElementById('playBtn').onclick = goToUnderConstruction;
   document.getElementById('settingsBtn').onclick = goToUnderConstruction;
   document.getElementById('quitBtn').onclick = goToUnderConstruction;
-
 
 // starta animationen direkt
 startAnimation();
