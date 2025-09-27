@@ -11,15 +11,20 @@ let step = 0;
 
 function nextStep() {
   if (step < cracks.length) {
-    // Skaka ägget
+    // Skaka ägget och synliga sprickor
     egg.classList.add("shake");
+    cracks.slice(0, step).forEach(c => c.classList.add("shake"));
+
     setTimeout(() => {
       cracks[step].classList.add("show");
       egg.classList.remove("shake");
+      cracks.slice(0, step + 1).forEach(c => c.classList.remove("shake"));
       step++;
-      setTimeout(nextStep, 800); // nästa spricka
+      setTimeout(nextStep, 800);
     }, 400);
   } else {
+}
+
     // Alla sprickor syns, lägg glow
     cracks.forEach(c => c.classList.add("glow"));
     egg.style.opacity = "0.3"; // ljusa upp ägget lite
