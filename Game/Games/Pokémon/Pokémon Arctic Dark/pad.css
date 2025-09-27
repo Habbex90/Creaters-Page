@@ -46,10 +46,10 @@ body {
 /* Sprickor */
 .crack {
   position: absolute;
-  top: 60px;
+  top: 10px;          /* flyttat upp till äggspetsen */
   left: 50%;
   width: 2px;
-  height: 60px;
+  height: 40px;       /* lite kortare sprickor */
   background: black;
   opacity: 0;
   transform-origin: top;
@@ -60,10 +60,10 @@ body {
   opacity: 1;
 }
 
-.crack1 { transform: rotate(20deg); }
-.crack2 { transform: rotate(-20deg); }
-.crack3 { transform: rotate(60deg); }
-.crack4 { transform: rotate(-60deg); }
+.crack1 { transform: rotate(15deg); }
+.crack2 { transform: rotate(-15deg); }
+.crack3 { transform: rotate(40deg); }
+.crack4 { transform: rotate(-40deg); }
 
 /* Text och knapp */
 .content {
