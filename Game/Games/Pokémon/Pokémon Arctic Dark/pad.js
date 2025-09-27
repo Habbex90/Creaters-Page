@@ -1,4 +1,4 @@
-const eggContainer = document.querySelector(".egg-container");
+const eggContainer = document.getElementById("eggContainer");
 const egg = document.getElementById("egg");
 const cracks = [
   document.getElementById("crack1"),
@@ -13,11 +13,11 @@ let step = 0;
 
 function nextStep() {
   if (step < cracks.length) {
-    // Skaka ägget (hela containern)
+    // Skaka hela containern (ägget + alla synliga sprickor)
     eggContainer.classList.add("shake");
 
     setTimeout(() => {
-      // Visa nästa spricka
+      // Visa nästa spricka på sin fasta plats
       cracks[step].classList.add("show");
 
       // Sluta skaka
@@ -28,7 +28,7 @@ function nextStep() {
     }, 400);
 
   } else {
-    // Alla sprickor är synliga, skaka alla tillsammans
+    // Alla sprickor synliga -> skaka + glow
     eggContainer.classList.add("shake");
     cracks.forEach(c => c.classList.add("glow"));
 
