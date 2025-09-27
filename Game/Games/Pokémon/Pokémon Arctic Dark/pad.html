@@ -1,26 +1,27 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-  <meta charset="UTF-8">
-  <title>Pokémon Arctic Dark</title>
-  <link rel="stylesheet" href="pad.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ägganimation</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <div class="egg-container" id="eggContainer">
-    <img src="https://habbex90.github.io/Creaters-Page/Game/Images/Pokemon-Egg-Group.webp" alt="Ägg" class="egg-image" id="egg">
-    <div class="crack crack1" id="crack1"></div>
-    <div class="crack crack2" id="crack2"></div>
-    <div class="crack crack3" id="crack3"></div>
-    <div class="crack crack4" id="crack4"></div>
-    <div class="crack crack5" id="crack5"></div>
-  </div>
+<div id="container">
+  <div id="egg"></div>
+  <div class="crack" id="crack1"></div>
+  <div class="crack" id="crack2"></div>
+  <div class="crack" id="crack3"></div>
+  <div class="crack" id="crack4"></div>
+  <div class="crack" id="crack5"></div>
+</div>
 
-  <div class="content" id="content">
-    <h1>Pokémon Arctic Dark</h1>
-    <button>Download</button>
-  </div>
+<div id="message">
+  <div>Ägget har spruckit!</div>
+  <button onclick="restartAnimation()">Starta om</button>
+</div>
 
-  <script src="pad.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
