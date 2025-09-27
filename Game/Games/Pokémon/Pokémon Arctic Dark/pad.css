@@ -38,7 +38,7 @@ body {
 
 .crack {
   position: absolute;
-  top: 0;           /* Start från äggets övre kant */
+  top: 1;           /* Start från äggets övre kant */
   left: 50%;        /* Mitt på ägget */
   width: 2px;
   height: 0;        /* Växer neråt */
