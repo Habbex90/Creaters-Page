@@ -1,36 +1,65 @@
-// Hämta element
-const egg = document.querySelector(".egg");
-const title = document.querySelector(".title");
-const buttons = document.querySelector(".buttons");
-const downloadBtn = document.getElementById("downloadBtn");
+// -----------------------------
+// Inställningar
+// -----------------------------
+let egg = document.getElementById('egg');
+const title = document.querySelector('.title');
+const buttons = document.querySelector('.buttons');
+const downloadBtn = document.getElementById('downloadBtn');
 
-// Funktion som kör animationen
-function startAnimation() {
-  // Visa bara ägget först
-  egg.classList.remove("hidden");
-  title.classList.add("hidden");
-  buttons.classList.add("hidden");
+const CYCLE_MS = 6000;    // total cykeltid (4s egg + 2s title)
+const EGG_MS = 4000;      // hur länge ägget visas
+const ORIGINAL_SRC = egg.getAttribute('data-src') || egg.src;
 
-  // Efter 4 sekunder -> visa titel + knappar
-  setTimeout(() => {
-    egg.classList.add("hidden");
-    title.classList.remove("hidden");
-    buttons.classList.remove("hidden");
-  }, 4000);
+// -----------------------------
+// Hjälpfunktion: starta om GIF genom att ersätta <img>
+// (vi lägger till en timestamp som cache-buster så browsern laddar om GIF:en)
+// -----------------------------
+function restartGIF() {
+  const parent = egg.parentNode;
+  const newImg = document.createElement('img');
 
-  // Efter totalt 6 sekunder -> börja om
-  setTimeout(() => {
-    startAnimation();
-  }, 6000);
+  newImg.id = 'egg';
+  newImg.className = egg.className;
+  newImg.alt = egg.alt || 'Egg animation';
+  // cache-buster så bilden verkligen startar om
+  newImg.src = ORIGINAL_SRC + '?_=' + Date.now();
+
+  parent.replaceChild(newImg, egg);
+  egg = newImg; // uppdatera referensen så vi jobbar med nya elementet framåt
 }
 
-// Starta loop
-startAnimation();
+// -----------------------------
+// En cykel: visa gif i 4s, därefter titel+knappar i 2s
+// -----------------------------
+function cycleOnce() {
+  // Visa ägget och göm titel/knappar
+  egg.classList.remove('hidden');
+  title.classList.add('hidden');
+  buttons.classList.add('hidden');
 
-// Ladda ner fil när man klickar på knappen
-downloadBtn.addEventListener("click", () => {
-  const link = document.createElement("a");
-  link.href = "din-fil.pdf"; // <-- byt till din fil/URL
-  link.download = "min-nedladdning.pdf"; // <-- filnamn vid nedladdning
+  // Starta om GIF så den börjar från början
+  restartGIF();
+
+  // Efter EGG_MS: göm ägget och visa titel/knappar
+  setTimeout(() => {
+    egg.classList.add('hidden');
+    title.classList.remove('hidden');
+    buttons.classList.remove('hidden');
+  }, EGG_MS);
+}
+
+// Starta genast och sätt upp ett intervall som kör cykeln regelbundet
+cycleOnce();
+setInterval(cycleOnce, CYCLE_MS);
+
+// -----------------------------
+// Nedladdningsknapp
+// -----------------------------
+downloadBtn.addEventListener('click', () => {
+  const link = document.createElement('a');
+  link.href = 'din-fil.pdf';              // byt ut mot din fil/URL
+  link.download = 'min-nedladdning.pdf';  // filnamn som sparas lokalt
+  document.body.appendChild(link);
   link.click();
+  link.remove();
 });
