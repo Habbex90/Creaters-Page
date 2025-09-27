@@ -1,60 +1,82 @@
-const eggContainer = document.getElementById("eggContainer");
-const egg = document.getElementById("egg");
+const egg = document.getElementById('egg');
 const cracks = [
-  document.getElementById("crack1"),
-  document.getElementById("crack2"),
-  document.getElementById("crack3"),
-  document.getElementById("crack4"),
-  document.getElementById("crack5")
+  document.getElementById('crack1'),
+  document.getElementById('crack2'),
+  document.getElementById('crack3'),
+  document.getElementById('crack4'),
+  document.getElementById('crack5')
 ];
-const content = document.getElementById("content");
+const message = document.getElementById('message');
 
-let step = 0;
+// Sprickornas längder
+const midLength = 50;
+const lengths = [
+  midLength,
+  midLength - 2,
+  midLength - 3,
+  midLength - 4,
+  midLength - 6
+];
 
-function nextStep() {
-  if (step < cracks.length) {
-    // Skaka hela äggcontainern (ägget + sprickor)
-    eggContainer.classList.add("shake");
+// Sprickornas positioner (px från mitten)
+const positions = [
+  0,     // mitten
+  -20,   // vänster om mitten
+  20,    // höger om mitten
+  -40,   // vänster om andra sprickan
+  50     // höger om tredje sprickan
+];
 
-    setTimeout(() => {
-      // Visa nästa spricka från äggets övre mitt
-      cracks[step].classList.add("show");
+// Ställ in sprickor
+cracks.forEach((crack, i) => {
+  crack.style.height = lengths[i] + 'px';
+  crack.style.left = `calc(50% + ${positions[i]}px)`;
+});
 
-      // Sluta skaka
-      eggContainer.classList.remove("shake");
+// Funktion för att skaka ägget
+function shakeEgg(times, duration, callback) {
+  let i = 0;
+  const interval = setInterval(() => {
+    egg.style.transform = `rotate(${i % 2 === 0 ? 5 : -5}deg)`;
+    i++;
+    if (i > times) {
+      clearInterval(interval);
+      egg.style.transform = 'rotate(0deg)';
+      if (callback) callback();
+    }
+  }, duration);
+}
 
-      step++;
-      setTimeout(nextStep, 800);
-    }, 400);
-
-  } else {
-    // Alla sprickor synliga -> skaka + glow
-    eggContainer.classList.add("shake");
-    cracks.forEach(c => c.classList.add("glow"));
-
-    setTimeout(() => {
-      // Fade out ägg + sprickor
-      cracks.forEach(c => c.classList.remove("show", "glow"));
-      egg.style.opacity = "0";
-      eggContainer.classList.remove("shake");
-
-      // Visa text + knapp
-      content.classList.add("show");
-
+// Animationssekvens
+function animateCracks() {
+  egg.style.opacity = 1;
+  message.style.display = 'none';
+  cracks.forEach(c => c.style.opacity = 0);
+  
+  function showCrack(index) {
+    if (index >= cracks.length) {
+      // Alla sprickor är synliga, lägg på glow
+      cracks.forEach(c => c.classList.add('glow'));
       setTimeout(() => {
-        // Dölj text + knapp
-        content.classList.remove("show");
-
-        // Återställ äggets synlighet
-        egg.style.opacity = "1";
-
-        // Återställ steg och starta om
-        step = 0;
-        setTimeout(nextStep, 1000);
+        egg.style.opacity = 0;
+        cracks.forEach(c => c.style.opacity = 0);
+        cracks.forEach(c => c.classList.remove('glow'));
+        message.style.display = 'block';
       }, 2000);
-    }, 600); // glow-varaktighet
+      return;
+    }
+    cracks[index].style.opacity = 1;
+    // Skaka ägget med alla synliga sprickor
+    shakeEgg(6, 50, () => showCrack(index + 1));
   }
+  
+  showCrack(0);
 }
 
 // Starta animationen
-setTimeout(nextStep, 1000);
+animateCracks();
+
+// Restartknapp
+function restartAnimation() {
+  animateCracks();
+}
