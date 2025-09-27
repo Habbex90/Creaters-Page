@@ -1,99 +1,56 @@
 body {
   display: flex;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
   height: 100vh;
-  margin: 0;
+  background: #f0f0f0;
+  overflow: hidden;
+  flex-direction: column;
   font-family: sans-serif;
-  background: linear-gradient(to top, #4CAF50 25%, #87CEEB 25%);
 }
 
-.egg-container {
+#container {
   position: relative;
-  width: 180px;
+  width: 150px;
   height: 200px;
-  margin: 50px auto;
 }
 
-/* Ägget fyller containern */
-.egg-image {
+/* Ägg */
+#egg {
+  position: absolute;
   width: 100%;
   height: 100%;
-  display: block;
-  transition: opacity 0.6s ease;
+  background: white;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  transform-origin: top center;
 }
 
-/* Shake animation på hela containern */
-.shake {
-  animation: shake 0.4s ease;
-}
-
-@keyframes shake {
-  0% { transform: translateX(0); }
-  25% { transform: translateX(-8px); }
-  50% { transform: translateX(8px); }
-  75% { transform: translateX(-5px); }
-  100% { transform: translateX(0); }
-}
-
+/* Sprickor */
 .crack {
   position: absolute;
-  top: 1;           /* Start från äggets övre kant */
-  left: 50%;        /* Mitt på ägget */
   width: 2px;
-  height: 0;        /* Växer neråt */
-  background: black;
-  transform-origin: top;
-  transition: height 0.6s ease, background 0.6s ease;
-}
-
-.crack.show {
-  height: 40px; /* Hur långt de växer neråt */
-}
-
-.crack.glow {
-  background: yellow;
-  box-shadow: 0 0 10px yellow;
-}
-
-/* Lägg till rotation för sprickorna */
-.crack1 { transform: translateX(-50%) rotate(0deg); }
-.crack2 { transform: translateX(-50%) rotate(-15deg); }
-.crack3 { transform: translateX(-50%) rotate(15deg); }
-.crack4 { transform: translateX(-50%) rotate(-30deg); }
-.crack5 { transform: translateX(-50%) rotate(30deg); }
-
-.content {
-  position: absolute;
-  top: 40%;
+  background: green;
+  top: 0;
   left: 50%;
-  transform: translate(-50%, -50%) scale(0);
+  transform-origin: top center;
+  opacity: 0;
+}
+
+/* Lyser effekt */
+.glow {
+  box-shadow: 0 0 10px 5px lime;
+}
+
+/* Text och knapp */
+#message {
+  display: none;
+  margin-top: 20px;
   text-align: center;
-  transition: transform 0.6s ease;
-  z-index: 4;
 }
 
-.content.show {
-  transform: translate(-50%, -50%) scale(1);
-}
-
-.content h1 {
-  font-size: 1.4rem;
-  margin-bottom: 10px;
-  color: #222;
-}
-
-.content button {
-  background: #ffcc00;
-  color: #222;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 8px;
+#message button {
+  margin-top: 10px;
+  padding: 5px 10px;
   cursor: pointer;
-  font-size: 1rem;
-  font-weight: bold;
-}
-
-.content button:hover {
-  background: #e6b800;
 }
