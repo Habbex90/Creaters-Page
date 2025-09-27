@@ -11,23 +11,16 @@ body {
 }
 
 .egg-container {
-  position: relative;
-  width: 200px;
-  height: 260px;
-  margin-bottom: 50px; /* så ägget hamnar på "gräset" */
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  position: relative; /* gör sprickorna absoluta i förhållande till bilden */
+  width: 150px;       /* anpassa till bildens storlek */
+  height: 200px;      /* anpassa till bildens storlek */
+  margin: 50px auto;
 }
 
-/* Ägget (bilden du laddat upp) */
-.egg {
+.egg-image {
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  transition: transform 0.3s, opacity 0.5s;
-  position: relative;
-  z-index: 2;
+  display: block;
 }
 
 /* Skaka animation */
@@ -42,24 +35,18 @@ body {
   75% { transform: translateX(-5px); }
   100% { transform: translateX(0); }
 }
-
-/* Sprickor */
 .crack {
   position: absolute;
-  top: 0px;          /* flyttat upp till äggspetsen */
-  left: 50%;
+  top: 0;             /* startar vid bildens överkant */
+  left: 50%;          /* horisontellt centrerat */
   width: 2px;
-  height: 40px;       /* lite kortare sprickor */
+  height: 40px;       /* längd på sprickan */
   background: black;
-  opacity: 0;
   transform-origin: top;
-  z-index: 3;
-}
-
-.crack.show {
   opacity: 1;
 }
 
+/* olika vinklar */
 .crack1 { transform: rotate(15deg); }
 .crack2 { transform: rotate(-15deg); }
 .crack3 { transform: rotate(40deg); }
