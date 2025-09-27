@@ -38,15 +38,17 @@ body {
 
 .crack {
   position: absolute;
+  top: 0;           /* Start från äggets övre kant */
+  left: 50%;        /* Mitt på ägget */
   width: 2px;
-  height: 0;
+  height: 0;        /* Växer neråt */
   background: black;
   transform-origin: top;
   transition: height 0.6s ease, background 0.6s ease;
 }
 
 .crack.show {
-  height: 40px; /* växer nerifrån kanten */
+  height: 40px; /* Hur långt de växer neråt */
 }
 
 .crack.glow {
@@ -54,12 +56,12 @@ body {
   box-shadow: 0 0 10px yellow;
 }
 
-/* Fasta positioner vid äggets kant */
-.crack1 { top: 20px; left: 50%; transform: translateX(-50%) rotate(0deg); }
-.crack2 { top: 40px; left: 30%; transform: translateX(-50%) rotate(-15deg); }
-.crack3 { top: 40px; left: 70%; transform: translateX(-50%) rotate(15deg); }
-.crack4 { top: 60px; left: 25%; transform: translateX(-50%) rotate(-30deg); }
-.crack5 { top: 60px; left: 75%; transform: translateX(-50%) rotate(30deg); }
+/* Lägg till rotation för sprickorna */
+.crack1 { transform: translateX(-50%) rotate(0deg); }
+.crack2 { transform: translateX(-50%) rotate(-15deg); }
+.crack3 { transform: translateX(-50%) rotate(15deg); }
+.crack4 { transform: translateX(-50%) rotate(-30deg); }
+.crack5 { transform: translateX(-50%) rotate(30deg); }
 
 .content {
   position: absolute;
