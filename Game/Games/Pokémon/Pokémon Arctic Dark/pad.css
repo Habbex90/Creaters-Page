@@ -33,30 +33,6 @@ body::after {
   z-index: 1;
 }
 
-/* Overlay som ligger ovanpå GIF */
-#egg, #overlay {
-  display: none;
-  text-align: center;
-  margin-top: 20px;
-}
-#overlay {
-  font-size: 24px;
-}
-
-button {
-  margin-top: 10px;
-  padding: 10px 20px;
-  font-size: 18px;
-  border: none;
-  border-radius: 8px;
-  background-color: #4CAF50;
-  color: white;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #45a049;
-}
 
 
 
