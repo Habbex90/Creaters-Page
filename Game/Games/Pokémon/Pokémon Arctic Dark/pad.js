@@ -11,40 +11,39 @@ let step = 0;
 
 function nextStep() {
   if (step < cracks.length) {
+    // Skaka ägget
     egg.classList.add("shake");
     setTimeout(() => {
       cracks[step].classList.add("show");
       egg.classList.remove("shake");
       step++;
-      setTimeout(nextStep, 1000);
+      setTimeout(nextStep, 800); // nästa spricka
     }, 400);
   } else {
-    // öppna toppen
-    egg.style.transform = "translateY(30px) scaleY(0.7)";
+    // Alla sprickor syns, lägg glow
+    cracks.forEach(c => c.classList.add("glow"));
+    egg.style.opacity = "0.3"; // ljusa upp ägget lite
 
-    // visa text + knapp
-    content.classList.add("show");
-
-    // ta bort sprickorna och ägget direkt
-    cracks.forEach(c => c.classList.remove("show"));
-    egg.style.opacity = "0";
-
-    // låt text+knapp synas i 2 sek
     setTimeout(() => {
-      // dölj content
-      content.classList.remove("show");
-
-      // återställ ägget
-      egg.style.transform = "translateY(0) scaleY(1)";
+      // Dölj ägg + sprickor
+      cracks.forEach(c => c.classList.remove("show", "glow"));
       egg.style.opacity = "1";
 
-      step = 0;
+      // Visa text + knapp
+      content.classList.add("show");
 
-      // starta om efter liten delay
-      setTimeout(nextStep, 1000);
-    }, 2000);
+      setTimeout(() => {
+        // Dölj text + knapp
+        content.classList.remove("show");
+
+        // Återställ steget
+        step = 0;
+        setTimeout(nextStep, 1000); // starta om
+      }, 2000);
+
+    }, 600); // glow-varaktighet
   }
 }
 
-// starta animation efter liten delay
+// starta animation
 setTimeout(nextStep, 1000);
