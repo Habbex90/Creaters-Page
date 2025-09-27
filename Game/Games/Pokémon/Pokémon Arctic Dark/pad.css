@@ -43,13 +43,14 @@ body::after {
   align-items: center;
   z-index: 2;
   pointer-events: none; /* knappar aktiveras separat */
-  opacity: 0;
-  animation: overlay-fade 6s infinite; /* total tid = 6s (4s visible, 2s hidden) */
+  animation: overlay-fade 6s infinite; /* 4s gömd, 2s synlig */
 }
 
 @keyframes overlay-fade {
-  0%, 66.66% { opacity: 0; }   /* första 4s = osynlig */
-  66.66%, 100% { opacity: 1; } /* nästa 2s = synlig */
+  0%, 66% { opacity: 0; }    /* 0–4s osynlig */
+  67%, 95% { opacity: 1; }   /* 4–5.7s synlig */
+  100% { opacity: 0; }       /* sista 0.3s fade ut */
+}
 }
 
 
