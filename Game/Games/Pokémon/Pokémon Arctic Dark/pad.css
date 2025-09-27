@@ -34,24 +34,25 @@ body::after {
 }
 
 /* Overlay som ligger ovanpå GIF */
-.overlay {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  z-index: 2;
-  pointer-events: none; /* knappar aktiveras separat */
-  animation: overlay-fade 6s infinite; /* 4s gömd, 2s synlig */
+#overlay {
+  font-size: 24px;
 }
 
-@keyframes overlay-fade {
-  0%, 66% { opacity: 0; }    /* 0–4s osynlig */
-  67%, 95% { opacity: 1; }   /* 4–5.7s synlig */
-  100% { opacity: 0; }       /* sista 0.3s fade ut */
+button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
 }
+
+button:hover {
+  background-color: #45a049;
 }
+
 
 
 /* Titel: alltid en rad, skalbar */
