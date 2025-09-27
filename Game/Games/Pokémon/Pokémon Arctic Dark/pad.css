@@ -1,56 +1,50 @@
-body {
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background: #f0f0f0;
-  overflow: hidden;
-  flex-direction: column;
-  font-family: sans-serif;
+  background: linear-gradient(to top, #006400 50%, #00008B 50%); /* mörkgrön gräs och mörkblå himmel */
+  font-family: Arial, sans-serif;
 }
 
-#container {
+.container {
   position: relative;
-  width: 150px;
-  height: 200px;
+  width: 400px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
 
-/* Ägg */
-#egg {
+.gif {
   position: absolute;
-  width: 100%;
-  height: 100%;
-  background: white;
-  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
-  transform-origin: top center;
+  width: 200px;
+  height: auto;
 }
 
-/* Sprickor */
-.crack {
+.overlay {
   position: absolute;
-  width: 2px;
-  background: green;
-  top: 0;
-  left: 50%;
-  transform-origin: top center;
-  opacity: 0;
-}
-
-/* Lyser effekt */
-.glow {
-  box-shadow: 0 0 10px 5px lime;
-}
-
-/* Text och knapp */
-#message {
-  display: none;
-  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 24px;
   text-align: center;
+  opacity: 0;
+  transition: opacity 0.5s;
 }
 
-#message button {
-  margin-top: 10px;
-  padding: 5px 10px;
+.overlay button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 18px;
   cursor: pointer;
+  border: none;
+  background-color: #ff6347;
+  color: white;
+  border-radius: 5px;
 }
