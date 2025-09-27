@@ -1,27 +1,20 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ägganimation</title>
-<link rel="stylesheet" href="pad.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GIF Animation Loop</title>
+  <link rel="stylesheet" href="pad.css">
 </head>
 <body>
+  <div class="container">
+    <img src="https://habbex90.github.io/Creaters-Page/Game/Images/Pokemon-Egg-Group.gif" class="egg" id="egg">
+    <div class="overlay" id="overlay">
+      <div>Pokémon Arctic Dark</div>
+      <button onclick="alert('Knapp tryckt!')">Tryck här</button>
+    </div>
+  </div>
 
-<div id="container">
-  <div id="egg"></div>
-  <div class="crack" id="crack1"></div>
-  <div class="crack" id="crack2"></div>
-  <div class="crack" id="crack3"></div>
-  <div class="crack" id="crack4"></div>
-  <div class="crack" id="crack5"></div>
-</div>
-
-<div id="message">
-  <div>Ägget har spruckit!</div>
-  <button onclick="restartAnimation()">Starta om</button>
-</div>
-
-<script src="pad.js"></script>
+  <script src="pad.js"></script>
 </body>
 </html>
