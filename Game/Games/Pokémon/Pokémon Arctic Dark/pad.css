@@ -20,21 +20,6 @@ body::after {
   z-index: 0;
 }
 
-/* Norrsken */
-.northern-lights {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(120deg, rgba(0,255,150,0.2), rgba(0,150,255,0.2));
-  animation: aurora 8s infinite alternate;
-  z-index: 0;
-}
-
-@keyframes aurora {
-  0% { transform: translateX(-200px) rotate(5deg); }
-  50% { transform: translateX(200px) rotate(-5deg); }
-  100% { transform: translateX(-200px) rotate(5deg); }
-}
-
 /* GIF fyller hela skärmen */
 .egg {
   height: 100%;
@@ -58,7 +43,15 @@ body::after {
   align-items: center;
   z-index: 2;
   pointer-events: none; /* knappar aktiveras separat */
+  opacity: 0;
+  animation: overlay-fade 6s infinite; /* total tid = 6s (4s visible, 2s hidden) */
 }
+
+@keyframes overlay-fade {
+  0%, 66.66% { opacity: 0; }   /* första 4s = osynlig */
+  66.66%, 100% { opacity: 1; } /* nästa 2s = synlig */
+}
+
 
 /* Titel: alltid en rad, skalbar */
 .title {
