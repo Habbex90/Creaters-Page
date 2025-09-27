@@ -13,11 +13,11 @@ let step = 0;
 
 function nextStep() {
   if (step < cracks.length) {
-    // Skaka hela containern (ägget + alla synliga sprickor)
+    // Skaka hela äggcontainern (ägget + sprickor)
     eggContainer.classList.add("shake");
 
     setTimeout(() => {
-      // Visa nästa spricka på sin fasta plats
+      // Visa nästa spricka från äggets övre mitt
       cracks[step].classList.add("show");
 
       // Sluta skaka
