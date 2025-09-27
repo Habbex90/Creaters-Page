@@ -32,9 +32,17 @@ body::after {
   transform: translateX(-50%);
   z-index: 1;
 }
-
-
-
+/* Overlay som ligger ovanpå GIF */
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  pointer-events: none; /* knappar aktiveras separat */
+}
 
 /* Titel: alltid en rad, skalbar */
 .title {
