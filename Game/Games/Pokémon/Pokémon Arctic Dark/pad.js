@@ -1,9 +1,11 @@
+const eggContainer = document.querySelector(".egg-container");
 const egg = document.getElementById("egg");
 const cracks = [
   document.getElementById("crack1"),
   document.getElementById("crack2"),
   document.getElementById("crack3"),
-  document.getElementById("crack4")
+  document.getElementById("crack4"),
+  document.getElementById("crack5")
 ];
 const content = document.getElementById("content");
 
@@ -11,32 +13,30 @@ let step = 0;
 
 function nextStep() {
   if (step < cracks.length) {
-    // Skaka ägget och redan synliga sprickor
-    egg.classList.add("shake");
-    cracks.slice(0, step).forEach(c => c.classList.add("shake"));
+    // Skaka ägget (hela containern)
+    eggContainer.classList.add("shake");
 
     setTimeout(() => {
       // Visa nästa spricka
       cracks[step].classList.add("show");
 
       // Sluta skaka
-      egg.classList.remove("shake");
-      cracks.slice(0, step + 1).forEach(c => c.classList.remove("shake"));
+      eggContainer.classList.remove("shake");
 
       step++;
       setTimeout(nextStep, 800);
     }, 400);
 
   } else {
-    // Alla sprickor är synliga, lägg till glow och skaka dem
-    cracks.forEach(c => c.classList.add("glow", "shake"));
-    egg.classList.add("shake");
+    // Alla sprickor är synliga, skaka alla tillsammans
+    eggContainer.classList.add("shake");
+    cracks.forEach(c => c.classList.add("glow"));
 
     setTimeout(() => {
-      // Dölj ägget och sprickorna tillsammans
-      cracks.forEach(c => c.classList.remove("show", "glow", "shake"));
+      // Fade out ägg + sprickor
+      cracks.forEach(c => c.classList.remove("show", "glow"));
       egg.style.opacity = "0";
-      egg.classList.remove("shake");
+      eggContainer.classList.remove("shake");
 
       // Visa text + knapp
       content.classList.add("show");
@@ -48,14 +48,13 @@ function nextStep() {
         // Återställ äggets synlighet
         egg.style.opacity = "1";
 
-        // Återställ steget och starta om animationen
+        // Återställ steg och starta om
         step = 0;
         setTimeout(nextStep, 1000);
-      }, 2000); // text och knapp visas i 2 sekunder
-
+      }, 2000);
     }, 600); // glow-varaktighet
   }
 }
 
-// starta animation
+// Starta animationen
 setTimeout(nextStep, 1000);
