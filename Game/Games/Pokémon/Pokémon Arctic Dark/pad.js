@@ -1,4 +1,4 @@
-const gif = document.getElementById('gif');
+const gif = document.getElementById('egg');
 const overlay = document.getElementById('overlay');
 
 function startAnimation() {
