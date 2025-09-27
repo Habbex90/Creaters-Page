@@ -10,7 +10,7 @@ body {
 
 .egg-container {
   position: relative;
-  width: 166px; /* ökade 3px */
+  width: 180px; /* ökade 3px */
   height: 200px;
   margin: 50px auto;
 }
